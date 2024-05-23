@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="navbar-brand" href="{%url 'index'%}">DJANGO</a>
+                </li>
+                <li>
+                    <a class="navbar-link" href="{%url 'admin:index' %}">ADMIN</a>
+                </li>
+                <li>
+                    <a class="navbar-link" href="{% url 'security:register' %}">REGISTER</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="navbar-link" href="{% url 'logout' %}">LOGOUT</a>
+                </li>
+                <li>
+                    <a class="navbar-link" href="{% url 'special' %}">REGISTER</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="navbar-link" href="{% url 'security:user_login' %}">LOGIN</a>
+                </li>
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>

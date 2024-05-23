@@ -1,0 +1,2 @@
+static stuff belonging to user like profile picture
+and in STATIC folder the content that is developer's
